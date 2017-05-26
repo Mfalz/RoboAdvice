@@ -5,7 +5,7 @@ pipeline {
         stage('Build') { 
             steps { 
 		sh 'echo build...'
-                sh './start.sh'
+                sh 'mvn spring-boot:run -Dmaven.test.skil=true'
             }
         }
         stage('Test'){
