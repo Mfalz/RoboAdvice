@@ -1,5 +1,5 @@
 pipeline {
-    agent centOS-slave2 
+    agent "centOS-slave2" 
 
     stages {
         stage('Build') { 
