@@ -22,11 +22,6 @@ jobs:
         run: chmod +x ./mvnw
       - name: Build
         run: ./mvnw -B package -DskipTests --file pom.xml
-      - name: Run Unit Tests
-        run: ./mvnw test
-      - name: Run Integration Tests
-        run: |
-          ./mvnw verify
 
   release-snapshot:
     runs-on: ubuntu-latest
