@@ -1,4 +1,4 @@
-FROM --platform=$TARGETPLATFORM eclipse-temurin
+FROM --platform=$TARGETPLATFORM eclipse-temurin:8-jre
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
