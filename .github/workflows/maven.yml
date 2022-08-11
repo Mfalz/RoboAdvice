@@ -53,7 +53,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm
           push: true
-          tags: mfalz1/inventory-service
+          tags: mfalz1/robo-advice-service
 
   release-main:
     runs-on: ubuntu-latest
