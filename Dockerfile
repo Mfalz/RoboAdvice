@@ -5,8 +5,8 @@ ARG BUILDPLATFORM
 
 WORKDIR /usr/myapp
 
-COPY target/*.jar myapp.jar
+COPY target/*.war myapp.war
 
-CMD ["java","-jar","myapp.jar"]
+CMD ["java","-jar","myapp.war"]
 
-ENTRYPOINT ["sh", "-c", "exec java -Xbootclasspath/a:/resources -jar myapp.jar"]
+ENTRYPOINT ["sh", "-c", "exec java -Xbootclasspath/a:/resources -jar myapp.war"]
