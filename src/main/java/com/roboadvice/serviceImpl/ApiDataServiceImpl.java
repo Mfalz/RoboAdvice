@@ -10,6 +10,7 @@ import com.roboadvice.repository.ApiDataRepository;
 import com.roboadvice.repository.AssetsRepository;
 import com.roboadvice.service.ApiDataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.threeten.bp.Period;
 
@@ -21,6 +22,9 @@ public class ApiDataServiceImpl implements ApiDataService{
 
     private ApiDataRepository apiDataRepository;
     private AssetsRepository assetsRepository;
+
+    @Value("${quandl.api-key}")
+    private String quandlApiKey;
 
     @Autowired
     public ApiDataServiceImpl(ApiDataRepository apiDataRepository, AssetsRepository assetsRepository) {
@@ -34,7 +38,7 @@ public class ApiDataServiceImpl implements ApiDataService{
         Iterable<Assets> assetsList = assetsRepository.findAll();
         ApiData api;
         for (Assets asset : assetsList) {
-            QuandlSession session = QuandlSession.create("-Kcq55sDChWyAc2wcxcM");
+            QuandlSession session = QuandlSession.create(quandlApiKey);
             TabularResult tabularResult = session.getDataSet(
                     DataSetRequest.Builder
                             .of(asset.getApi_data_src())
