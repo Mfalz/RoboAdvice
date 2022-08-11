@@ -1,13 +1,12 @@
-FROM openjdk:8u121-jdk
+FROM --platform=$TARGETPLATFORM eclipse-temurin
+
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
 
 WORKDIR /usr/myapp
 
-ENV OWNER mfalz
-ENV REPO roboadvice-service
-ENV PACKAGE tbd
-ENV VERSION tbd
-ENV ARTIFACT tbd
-
-RUN wget https://maven.pkg.github.com/${OWNER}/${REPO}/${PACKAGE}/${VERSION}/${ARTIFACT}.jar myapp.jar
+COPY target/*.jar myapp.jar
 
 CMD ["java","-jar","myapp.jar"]
+
+ENTRYPOINT ["sh", "-c", "exec java -Xbootclasspath/a:/resources -jar myapp.jar"]
