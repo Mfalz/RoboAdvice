@@ -106,7 +106,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/mfalz/robo-advice-service</url>
+			<url>https://maven.pkg.github.com/mfalz/roboadvice</url>
 		</repository>
 	</distributionManagement>
 
